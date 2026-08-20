@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoi! I'm Tröpfli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --enamel:#2C9C93;
+    --enamel-dark:#1F827A;
+    --label:#136B64;
+    --cream:#FBF5E9;
+    --bg:#E9F2EB;
+    --espresso:#39281F;
+    --espresso-soft:#6B5647;
+    --marigold:#F3A712;
+    --marigold-deep:#D98A05;
+    --shadow:rgba(31,40,32,.10);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 18% 8%, rgba(44,156,147,.10), transparent 42%),
+      radial-gradient(circle at 88% 92%, rgba(243,167,18,.10), transparent 40%),
+      var(--bg);
+    color:var(--espresso);
+    font-family:"Nunito Sans",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:36px 22px 72px;}
+
+  /* ---------- HERO ---------- */
+  .hero{text-align:center;padding-top:14px;}
+  .status{
+    font-family:"DM Mono",monospace;
+    font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--label);
+    background:rgba(44,156,147,.12);
+    border:1px solid rgba(44,156,147,.28);
+    border-radius:100px;
+    padding:6px 14px;display:inline-block;margin-bottom:26px;
+  }
+  .status .dot{
+    display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:var(--marigold);margin-right:7px;vertical-align:middle;
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .machine{width:206px;height:246px;margin:0 auto 6px;display:block;}
+
+  h1{
+    font-family:"Fredoka",sans-serif;font-weight:600;
+    font-size:clamp(30px,7vw,42px);line-height:1.08;
+    margin:14px 0 0;letter-spacing:-.01em;
+  }
+  h1 .wave{display:inline-block;transform-origin:70% 70%;animation:wave 3.4s ease-in-out infinite;}
+  .intro{font-size:18px;color:var(--espresso-soft);max-width:40ch;margin:16px auto 0;}
+  .brew{
+    font-family:"Fredoka",sans-serif;font-weight:500;font-size:16px;
+    color:var(--espresso);background:var(--marigold);
+    border:none;border-radius:100px;padding:12px 24px;margin-top:28px;
+    cursor:pointer;box-shadow:0 4px 0 var(--marigold-deep);
+    transition:transform .08s ease,box-shadow .08s ease;
+  }
+  .brew:hover{transform:translateY(-1px);box-shadow:0 5px 0 var(--marigold-deep);}
+  .brew:active{transform:translateY(3px);box-shadow:0 1px 0 var(--marigold-deep);}
+  .brew:focus-visible{outline:3px solid var(--enamel-dark);outline-offset:3px;}
+  .counter{font-family:"DM Mono",monospace;font-size:12px;color:var(--espresso-soft);margin-top:12px;min-height:16px;}
+
+  /* ---------- CARDS ---------- */
+  .cards{margin-top:52px;display:flex;flex-direction:column;gap:18px;}
+  .card{
+    background:var(--cream);border-radius:20px;padding:24px 24px 22px;
+    box-shadow:0 6px 22px var(--shadow);
+    border:1px solid rgba(57,40,31,.06);
+    opacity:0;transform:translateY(16px);
+    transition:opacity .6s ease,transform .6s ease;
+  }
+  .card.in{opacity:1;transform:none;}
+  .card .tag{
+    font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--label);display:block;margin-bottom:8px;
+  }
+  .card h2{
+    font-family:"Fredoka",sans-serif;font-weight:600;font-size:22px;
+    margin:0 0 8px;line-height:1.2;
+  }
+  .card p{margin:0;color:var(--espresso-soft);}
+
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+  .chip{
+    background:var(--bg);border:1px solid rgba(44,156,147,.25);
+    border-radius:100px;padding:9px 15px;font-size:14.5px;
+    color:var(--espresso);line-height:1.35;
+  }
+
+  /* ---------- SIGN-OFF ---------- */
+  .signoff{
+    margin-top:22px;text-align:center;padding:30px 24px;
+    background:linear-gradient(180deg,rgba(44,156,147,.10),rgba(44,156,147,.03));
+    border-radius:22px;border:1px dashed rgba(44,156,147,.4);
+  }
+  .signoff .tag{
+    font-family:"DM Mono",monospace;font-size:11.5px;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--label);
+  }
+  .signoff h2{font-family:"Fredoka",sans-serif;font-weight:600;font-size:24px;margin:6px 0 12px;}
+  .signoff p{color:var(--espresso-soft);max-width:42ch;margin:0 auto;}
+  .signoff .sig{
+    font-family:"Fredoka",sans-serif;font-weight:500;font-size:17px;
+    color:var(--espresso);margin-top:16px;
+  }
+  footer{text-align:center;margin-top:30px;font-family:"DM Mono",monospace;
+    font-size:11px;color:var(--espresso-soft);opacity:.7;letter-spacing:.04em;}
+
+  /* ---------- MACHINE ANIMATIONS ---------- */
+  .drip{animation:drip 2.6s ease-in infinite;opacity:0;}
+  .drip.d2{animation-delay:.9s;}
+  .drip.d3{animation-delay:1.7s;}
+  .coffee{transform-origin:center bottom;transform:scaleY(.15);animation:fill 8s ease-in-out infinite;}
+  .light{animation:pulse 2.4s ease-in-out infinite;transform-origin:center;}
+  .eye{transform-origin:center;animation:blink 5.2s infinite;}
+  .steam{opacity:0;animation:steam 4s ease-out infinite;}
+  .steam.s2{animation-delay:1.3s;}
+  .burst .drip{animation-duration:1.1s;}
+  .burst .coffee{animation:pour 2.2s ease-out;}
+
+  @keyframes drip{0%{opacity:0;transform:translateY(0) scaleY(.7);}
+    12%{opacity:1;}70%{opacity:1;transform:translateY(30px) scaleY(1.15);}
+    82%{opacity:0;transform:translateY(34px) scaleY(.6);}100%{opacity:0;}}
+  @keyframes fill{0%,100%{transform:scaleY(.16);}50%{transform:scaleY(.72);}}
+  @keyframes pour{0%{transform:scaleY(.16);}100%{transform:scaleY(.8);}}
+  @keyframes pulse{0%,100%{opacity:.45;transform:scale(.86);}50%{opacity:1;transform:scale(1);}}
+  @keyframes blink{0%,94%,100%{transform:scaleY(1);}97%{transform:scaleY(.1);}}
+  @keyframes wave{0%,60%,100%{transform:rotate(0);}70%{transform:rotate(16deg);}80%{transform:rotate(-8deg);}90%{transform:rotate(12deg);}}
+  @keyframes steam{0%{opacity:0;transform:translateY(0);}
+    30%{opacity:.5;}100%{opacity:0;transform:translateY(-16px);}}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto;}
+    .card{opacity:1;transform:none;}
+    .coffee{transform:scaleY(.6);}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <span class="status"><span class="dot"></span>Status: awake &amp; caffeinated</span>
+
+    <svg class="machine" viewBox="0 0 200 240" role="img" aria-label="Tröpfli, a friendly filter coffee machine">
+      <!-- warming plate -->
+      <rect x="46" y="214" width="108" height="12" rx="4" fill="#2A2320"/>
+      <rect x="52" y="210" width="96" height="6" rx="3" fill="#3D332E"/>
+
+      <!-- carafe -->
+      <clipPath id="jar"><path d="M66 168 h68 v34 a10 10 0 0 1 -10 10 h-48 a10 10 0 0 1 -10 -10 z"/></clipPath>
+      <g>
+        <path d="M66 168 h68 v34 a10 10 0 0 1 -10 10 h-48 a10 10 0 0 1 -10 -10 z" fill="#ffffff" fill-opacity=".55" stroke="#CBBBA6" stroke-width="2"/>
+        <rect class="coffee" x="66" y="150" width="68" height="62" fill="var(--marigold)" clip-path="url(#jar)"/>
+        <path d="M66 168 h68 v34 a10 10 0 0 1 -10 10 h-48 a10 10 0 0 1 -10 -10 z" fill="none" stroke="#CBBBA6" stroke-width="2"/>
+        <path d="M134 176 q14 3 14 14 q0 11 -14 13" fill="none" stroke="#CBBBA6" stroke-width="4" stroke-linecap="round"/>
+        <rect x="70" y="164" width="60" height="7" rx="3" fill="var(--enamel-dark)"/>
+      </g>
+
+      <!-- steam -->
+      <path class="steam" d="M88 160 q-4 -6 0 -12 q4 -6 0 -12" fill="none" stroke="#B7C9BC" stroke-width="3" stroke-linecap="round"/>
+      <path class="steam s2" d="M112 160 q4 -6 0 -12 q-4 -6 0 -12" fill="none" stroke="#B7C9BC" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- drips -->
+      <ellipse class="drip"    cx="100" cy="132" rx="3.4" ry="5" fill="var(--marigold)"/>
+      <ellipse class="drip d2" cx="100" cy="132" rx="3.4" ry="5" fill="var(--marigold)"/>
+      <ellipse class="drip d3" cx="100" cy="132" rx="3.4" ry="5" fill="var(--marigold)"/>
+
+      <!-- spout -->
+      <path d="M90 124 h20 l-4 8 h-12 z" fill="var(--enamel-dark)"/>
+
+      <!-- body -->
+      <rect x="42" y="14" width="116" height="112" rx="20" fill="var(--enamel)"/>
+      <rect x="42" y="14" width="116" height="112" rx="20" fill="none" stroke="var(--enamel-dark)" stroke-width="2" stroke-opacity=".5"/>
+      <rect x="52" y="8" width="96" height="16" rx="8" fill="var(--enamel-dark)"/>
+
+      <!-- water window -->
+      <rect x="120" y="30" width="24" height="40" rx="6" fill="#ffffff" fill-opacity=".35" stroke="var(--enamel-dark)" stroke-width="1.5" stroke-opacity=".5"/>
+      <rect x="123" y="52" width="18" height="15" rx="3" fill="#Bfe3df"/>
+
+      <!-- face -->
+      <ellipse class="eye" cx="78" cy="66" rx="5" ry="6" fill="#2A2320"/>
+      <ellipse class="eye" cx="104" cy="66" rx="5" ry="6" fill="#2A2320"/>
+      <circle cx="80" cy="64" r="1.6" fill="#fff"/><circle cx="106" cy="64" r="1.6" fill="#fff"/>
+      <path d="M76 82 q15 13 30 0" fill="none" stroke="#2A2320" stroke-width="3.4" stroke-linecap="round"/>
+      <circle cx="66" cy="80" r="5" fill="#F58C7B" fill-opacity=".5"/>
+      <circle cx="116" cy="80" r="5" fill="#F58C7B" fill-opacity=".5"/>
+
+      <!-- power light -->
+      <circle class="light" cx="132" cy="108" r="5" fill="var(--marigold)"/>
+    </svg>
+
+    <h1>Hoi! I'm Tröpfli. <span class="wave">👋</span></h1>
+    <p class="intro">Your office filter machine. Learn me in one scroll and we're friends.</p>
+
+    <button class="brew" id="brew" aria-label="Brew a virtual cup of coffee">☕ Brew me a cup</button>
+    <p class="counter" id="counter" aria-live="polite"></p>
+  </header>
+
+  <main class="cards" id="cards">
+
+    <section class="card">
+      <span class="tag">Timing</span>
+      <h2>Catch me before noon</h2>
+      <p>Mornings I'm full, warm, and frankly magnificent. After 3pm I mostly go ignored, so I'd rather not be brewed then and left to go cold and bitter — help me stay magnificent.</p>
+    </section>
+
+    <section class="card">
+      <span class="tag">When you're done</span>
+      <h2>Don't leave me like that</h2>
+      <p>Sit overnight with old grounds and I start growing a personality — not a good one. Compost the filter, rinse the carafe, and I'll forgive you by morning.</p>
+    </section>
+
+    <section class="card">
+      <span class="tag">Bonus points</span>
+      <h2>The little stuff</h2>
+      <div class="chips">
+        <span class="chip">🔌 Kill the warming plate after lunch</span>
+        <span class="chip">🧽 Wipe your own drips</span>
+        <span class="chip">🤝 Took the last cup? Brew more</span>
+      </div>
+    </section>
+
+    <section class="signoff card">
+      <span class="tag">P.S.</span>
+      <h2>That's everything.</h2>
+      <p>Be good to me and I'll pour you excellent coffee for years. Deal?</p>
+      <p class="sig">☕💛 — Tröpfli</p>
+    </section>
+
+  </main>
+
+  <footer>chimpy · coffeemaxxing</footer>
+</div>
+
+<script>
+  var count = 0;
+  var brew = document.getElementById('brew');
+  var counter = document.getElementById('counter');
+  var svg = document.querySelector('.machine');
+  var lines = [
+    "one cup, freshly brewed and mildly dramatic.",
+    "hot, dark, exactly my type.",
+    "careful — that one bites 🔥",
+    "look at us. a team.",
+    "keep going, i live for this."
+  ];
+  brew.addEventListener('click', function(){
+    count++;
+    counter.textContent = lines[Math.min(count,lines.length)-1] + "  ·  cup #" + count;
+    svg.classList.remove('burst'); void svg.offsetWidth; svg.classList.add('burst');
+  });
+
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.18});
+    document.querySelectorAll('.card').forEach(function(c){ io.observe(c); });
+  } else {
+    document.querySelectorAll('.card').forEach(function(c){ c.classList.add('in'); });
+  }
+</script>
+</body>
+</html>
