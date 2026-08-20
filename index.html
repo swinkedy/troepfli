@@ -7,8 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script data-goatcounter="https://troepfli.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
 <style>
   :root{
     --enamel:#2C9C93;
@@ -95,6 +93,8 @@
     margin:0 0 8px;line-height:1.2;
   }
   .card p{margin:0;color:var(--espresso-soft);}
+  .card .more{font-size:14px;color:var(--espresso-soft);margin-top:12px;}
+  .card .more a{color:var(--enamel-dark);font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px;}
 
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
   .chip{
@@ -121,6 +121,7 @@
   }
   footer{text-align:center;margin-top:30px;font-family:"DM Mono",monospace;
     font-size:11px;color:var(--espresso-soft);opacity:.7;letter-spacing:.04em;}
+  footer a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
 
   /* ---------- MACHINE ANIMATIONS ---------- */
   .drip{animation:drip 2.6s ease-in infinite;opacity:0;}
@@ -216,6 +217,13 @@
   <main class="cards" id="cards">
 
     <section class="card">
+      <span class="tag">How to make me</span>
+      <h2>12 is the magic number</h2>
+      <p>One spoon of ground coffee per cup — so twelve spoons for a full pot, and that's my ceiling. Water to the MAX line (never over), and I'll take it from there.</p>
+      <p class="more">Discover more <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener">here</a>.</p>
+    </section>
+
+    <section class="card">
       <span class="tag">Timing</span>
       <h2>Catch me before noon</h2>
       <p>Mornings I'm full, warm, and frankly magnificent. After 3pm I mostly go ignored, so I'd rather not be brewed then and left to go cold and bitter — help me stay magnificent.</p>
@@ -224,14 +232,15 @@
     <section class="card">
       <span class="tag">When you're done</span>
       <h2>Don't leave me like that</h2>
-      <p>Sit overnight with old grounds and I start growing a personality — not a good one. Compost the filter, rinse the carafe, and I'll forgive you by morning.</p>
+      <p>Sit overnight with old grounds and I start growing a personality — not a good one. Tip the grounds out, give the carafe and filter a rinse, and never leave the empty jug baking on the hot plate — do that and I'll forgive you by morning.</p>
     </section>
 
     <section class="card">
       <span class="tag">Bonus points</span>
       <h2>The little stuff</h2>
       <div class="chips">
-        <span class="chip">🔌 Kill the warming plate after lunch</span>
+        <span class="chip">☕ Sneak a cup mid-brew — carafe back within 30 sec</span>
+        <span class="chip">🔌 Switch me off when the jug's empty</span>
         <span class="chip">🧽 Wipe your own drips</span>
         <span class="chip">🤝 Took the last cup? Brew more</span>
       </div>
@@ -246,7 +255,7 @@
 
   </main>
 
-  <footer>chimpy · coffeemaxxing</footer>
+  <footer>chimpy · Feedbacks? <a href="mailto:coffeemaxxing@heychimpy.com">coffeemaxxing@heychimpy.com</a></footer>
 </div>
 
 <script>
